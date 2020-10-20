@@ -34,7 +34,7 @@ public class Paket_Show extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sekolah_show);
+        setContentView(R.layout.paket_show);
 
         final ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;

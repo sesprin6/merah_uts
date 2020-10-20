@@ -1,4 +1,4 @@
-package uts.tugas.tutor.paket;
+package uts.tugas.tutor.siswa;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 import uts.tugas.tutor.R;
 
-public class Paket_Show_All extends AppCompatActivity
+public class Siswa_Show_All extends AppCompatActivity
 {
     private ListView listView;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -36,7 +36,7 @@ public class Paket_Show_All extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.paket_show_all);
+        setContentView(R.layout.siswa_show_all);
 
         final ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
@@ -48,7 +48,7 @@ public class Paket_Show_All extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                Intent intent = new Intent(Paket_Show_All.this, Paket_Show.class);
+                Intent intent = new Intent(Siswa_Show_All.this, Siswa_Add.class);
                 HashMap<String, String> map = (HashMap<String, String>) adapterView.getItemAtPosition(i);
                 String id = map.get(Config.ID);
                 intent.putExtra(Config.TAG_ID, id);
@@ -77,7 +77,7 @@ public class Paket_Show_All extends AppCompatActivity
             protected void onPreExecute()
             {
                 super.onPreExecute();
-                GlobalUtils.GProgressDialog.show(Paket_Show_All.this, "Mengambil data", "Mohon tunggu...");
+                GlobalUtils.GProgressDialog.show(Siswa_Show_All.this, "Mengambil data", "Mohon tunggu...");
             }
 
             @Override
@@ -110,16 +110,16 @@ public class Paket_Show_All extends AppCompatActivity
             {
                 JSONObject obj = result.getJSONObject(i);
 
-                HashMap<String, String> paket = new HashMap<>();
-                paket.put(Config.ID, obj.getString(Config.ID));
-                paket.put(Config.PACKAGE, obj.getString(Config.PACKAGE));
+                HashMap<String, String> siswa = new HashMap<>();
+                siswa.put(Config.ID, obj.getString(Config.ID));
+                siswa.put(Config.PACKAGE, obj.getString(Config.PACKAGE));
 
-                list.add(paket);
+                list.add(siswa);
             }
         }
         catch (JSONException ignored) {}
 
-        ListAdapter adapter = new SimpleAdapter(Paket_Show_All.this, list, R.layout.list_item, new String[] {Config.ID, Config.PACKAGE}, new int[] {R.id.id, R.id.name});
+        ListAdapter adapter = new SimpleAdapter(Siswa_Show_All.this, list, R.layout.list_item, new String[] {Config.ID, Config.PACKAGE}, new int[] {R.id.id, R.id.name});
         listView.setAdapter(adapter);
     }
 

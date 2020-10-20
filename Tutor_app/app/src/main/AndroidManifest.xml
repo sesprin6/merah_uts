@@ -13,8 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Splash" android:noHistory="true"
             android:configChanges="keyboardHidden|orientation"
-            android:windowSoftInputMode="stateHidden|adjustNothing"
-            android:label="Input Data Siswa">
+            android:windowSoftInputMode="stateHidden|adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +21,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".siswa.Siswa_Add"/>
+        <activity
+            android:name=".siswa.Siswa_Add"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Input Data Siswa"/>
+        <activity
+            android:name=".siswa.Siswa_Show_All"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:label="Daftar Sekolah"/>
+        <activity
+            android:name=".siswa.Siswa_Show"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Edit Siswa"/>
         
         <activity
             android:name=".sekolah.Sekolah_Add"

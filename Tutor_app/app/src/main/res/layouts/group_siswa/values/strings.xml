@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="no_induk">No Induk</string>
+    <string name="nama">Nama</string>
+    <string name="tambah">Tambah</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="tempat_lahir">Tempat Lahir</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
+    <string name="alamat">Alamat</string>
+    <string name="nama_wali">Nama Wali</string>
+    <string name="telp_hp">Telp / HP</string>
+    <string name="tambah_siswa">Tambah Siswa</string>
+    <string name="daftar_siswa">Daftar Siswa</string>
+    <string name="sekolah_asal">Sekolah Asal</string>
+    <string name="id_siswa">ID Siswa</string>
+    <string name="update_siswa">Update Siswa</string>
+    <string name="hapus_siswa">Hapus Siswa</string>
 </resources>
