@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uts.tugas.tutor">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash" android:noHistory="true">
+        <activity android:name=".Splash" android:noHistory="true"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:label="Input Data Siswa">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,9 +24,37 @@
 
         <activity android:name=".siswa.Siswa_Add"/>
         
-        <activity android:name=".sekolah.Sekolah_Add"/>
-        <activity android:name=".sekolah.Sekolah_Show_All"/>
-        <activity android:name=".sekolah.Sekolah_Show"/>
+        <activity
+            android:name=".sekolah.Sekolah_Add"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:label="Input Data Sekolah"/>
+        <activity
+            android:name=".sekolah.Sekolah_Show_All"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:label="Daftar Sekolah"/>
+        <activity
+            android:name=".sekolah.Sekolah_Show"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:label="Edit Sekolah"/>
+
+        <activity
+            android:name=".paket.Paket_Add"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:label="Input Data Paket"/>
+        <activity
+            android:name=".paket.Paket_Show_All"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:label="Daftar Paket"/>
+        <activity
+            android:name=".paket.Paket_Show"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:label="Edit Paket"/>
     </application>
 
 </manifest>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tambah_paket">Tambah Paket</string>
+    <string name="dafter_paket">Dafter Paket</string>
+    <string name="id_paket">ID Paket</string>
+    <string name="paket">Paket</string>
+    <string name="hapus_paket">Hapus Paket</string>
+</resources>
