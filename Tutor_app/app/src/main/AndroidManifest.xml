@@ -18,6 +18,9 @@
         </activity>
 
         <activity android:name=".siswa.Siswa_Add"/>
+        
+        <activity android:name=".sekolah.Sekolah_Add"/>
+        <activity android:name=".sekolah.Sekolah_Show_All"/>
     </application>
 
 </manifest>
