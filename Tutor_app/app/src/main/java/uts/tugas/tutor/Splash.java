@@ -25,7 +25,7 @@ public class Splash extends AppCompatActivity
             @Override
             public void run()
             {
-                startActivity(new Intent(getApplicationContext(), Siswa_Add.class));
+                startActivity(new Intent(Splash.this, Siswa_Add.class));
             }
         }, 3, TimeUnit.SECONDS);
     }

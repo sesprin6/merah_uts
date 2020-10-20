@@ -21,6 +21,7 @@
         
         <activity android:name=".sekolah.Sekolah_Add"/>
         <activity android:name=".sekolah.Sekolah_Show_All"/>
+        <activity android:name=".sekolah.Sekolah_Show"/>
     </application>
 
 </manifest>
