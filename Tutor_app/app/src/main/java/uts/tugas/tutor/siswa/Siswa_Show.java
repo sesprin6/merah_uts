@@ -1,9 +1,12 @@
 package uts.tugas.tutor.siswa;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -25,11 +28,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import uts.tugas.tutor.R;
 import uts.tugas.tutor.paket.Obj_Paket;
+import uts.tugas.tutor.paket.Paket_Add;
 import uts.tugas.tutor.sekolah.Obj_Sekolah;
+import uts.tugas.tutor.sekolah.Sekolah_Add;
 
 public class Siswa_Show extends AppCompatActivity implements View.OnClickListener
 {
@@ -313,10 +319,94 @@ public class Siswa_Show extends AppCompatActivity implements View.OnClickListene
         getSiswa();
     }
 
+    @SuppressWarnings("deprecation")
+    private void updateSiswa()
+    {
+        final String id = editText_Id.getText().toString();
+        final String no = editText_No.getText().toString();
+        final String name = editText_Name.getText().toString();
+        final String birthplace = editText_BirthPlace.getText().toString();
+        final String birthday = editText_BirthDay.getText().toString();
+        final String address = editText_Address.getText().toString();
+        final String representative = editText_Representative.getText().toString();
+        final String phone = editText_Phone.getText().toString();
+
+        if(TextUtils.isEmpty(id) || TextUtils.isEmpty(no) || TextUtils.isEmpty(name) || TextUtils.isEmpty(birthplace) || TextUtils.isEmpty(birthday) || TextUtils.isEmpty(address) || TextUtils.isEmpty(representative) || TextUtils.isEmpty(phone))
+        {
+            GlobalUtils.GToast.show(Siswa_Show.this, "Form tidak boleh kosong");
+            return;
+        }
+
+        if (spinner_Package.getSelectedItemPosition() == 0 || spinner_Sex.getSelectedItemPosition() == 0 || spinner_School.getSelectedItemPosition() == 0)
+        {
+            GlobalUtils.GToast.show(Siswa_Show.this, "Spinner kosong terdeteksi");
+            return;
+        }
+
+        final String pack = ((Obj_Paket) spinner_Package.getSelectedItem()).getId();
+        final String sex = spinner_Sex.getSelectedItem().toString();
+        final String school = ((Obj_Sekolah) spinner_School.getSelectedItem()).getId();
+
+        class Task extends AsyncTask<Void, Void, String>
+        {
+            @Override
+            protected void onPreExecute()
+            {
+                super.onPreExecute();
+                GlobalUtils.GProgressDialog.show(Siswa_Show.this, "Memperbarui data", "Mohon tunggu...");
+            }
+
+            @Override
+            protected String doInBackground(Void... voids)
+            {
+                HashMap<String, String> params = new HashMap<>();
+                params.put(Config.ID, id);
+                params.put(Config.NO, no);
+                params.put(Config.NAME, name);
+                params.put(Config.BIRTHPLACE, birthplace);
+                params.put(Config.BIRTHDAY, birthday);
+                params.put(Config.ADDRESS, address);
+                params.put(Config.REPRESENTATIVE, representative);
+                params.put(Config.PHONE, phone);
+                params.put(Config.SEX, sex);
+                params.put(Config.PACKAGE, pack);
+                params.put(Config.SCHOOL, school);
+
+                return RequestHandler.sendPostRequest(Config.URL_UPDATE, params);
+            }
+
+            @Override
+            protected void onPostExecute(String s)
+            {
+                super.onPostExecute(s);
+                GlobalUtils.GProgressDialog.dismiss();
+                GlobalUtils.GToast.show(Siswa_Show.this, s);
+                finish();
+            }
+        }
+
+        new Task().execute();
+    }
+
     @Override
     public void onClick(View view)
     {
+        if (view == button_Add_Paket)
+            startActivity(new Intent(Siswa_Show.this, Paket_Add.class));
+        else if (view == button_Add_Sekolah)
+            startActivity(new Intent(Siswa_Show.this, Sekolah_Add.class));
+        else if (view == button_Update)
+            updateSiswa();
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        if (item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return true;
     }
 
     @Override
