@@ -189,7 +189,7 @@ public class Paket_Show extends AppCompatActivity
     private void confirmDeletePaket()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Apakah Anda yakin ingin menghapus posisi ini?");
+        builder.setMessage("Apakah Anda yakin ingin menghapus paket ini?");
 
         builder.setPositiveButton("Ya",
                 new DialogInterface.OnClickListener()

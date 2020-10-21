@@ -1,5 +1,6 @@
 package uts.tugas.tutor.siswa;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.crud.library.GlobalUtils;
@@ -388,6 +390,65 @@ public class Siswa_Show extends AppCompatActivity implements View.OnClickListene
         new Task().execute();
     }
 
+    @SuppressWarnings("deprecation")
+    private void deleteSiswa()
+    {
+        class Task extends AsyncTask<Void, Void, String>
+        {
+            @Override
+            protected void onPreExecute()
+            {
+                super.onPreExecute();
+                GlobalUtils.GProgressDialog.show(Siswa_Show.this, "Menghapus data", "Mohon tunggu...");
+            }
+
+            @Override
+            protected String doInBackground(Void... voids)
+            {
+                return RequestHandler.sendGetRequest(Config.URL_DELETE + editText_Id.getText());
+            }
+
+            @Override
+            protected void onPostExecute(String s)
+            {
+                super.onPostExecute(s);
+                GlobalUtils.GProgressDialog.dismiss();
+                GlobalUtils.GToast.show(Siswa_Show.this, s);
+                finish();
+            }
+        }
+
+        new Task().execute();
+    }
+
+    private void confirmDeleteSiswa()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Apakah Anda yakin ingin menghapus siswa ini?");
+
+        builder.setPositiveButton("Ya",
+                new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        deleteSiswa();
+                    }
+                });
+        builder.setNegativeButton("Tidak",
+                new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     @Override
     public void onClick(View view)
     {
@@ -397,6 +458,8 @@ public class Siswa_Show extends AppCompatActivity implements View.OnClickListene
             startActivity(new Intent(Siswa_Show.this, Sekolah_Add.class));
         else if (view == button_Update)
             updateSiswa();
+        else if (view == button_Delete)
+            confirmDeleteSiswa();
     }
 
     @Override

@@ -194,7 +194,7 @@ public class Sekolah_Show extends AppCompatActivity
     private void confirmDeleteSekolah()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Apakah Anda yakin ingin menghapus posisi ini?");
+        builder.setMessage("Apakah Anda yakin ingin menghapus sekolah ini?");
 
         builder.setPositiveButton("Ya",
                 new DialogInterface.OnClickListener()
