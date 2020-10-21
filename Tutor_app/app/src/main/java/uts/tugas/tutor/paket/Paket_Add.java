@@ -61,7 +61,6 @@ public class Paket_Add extends AppCompatActivity
     private void addPaket()
     {
         final String name = editText_Package.getText().toString();
-        GlobalUtils.GToast.show(Paket_Add.this, name);
 
         if (TextUtils.isEmpty(name))
         {
