@@ -27,6 +27,6 @@ public class Splash extends AppCompatActivity
             {
                 startActivity(new Intent(Splash.this, Siswa_Add.class));
             }
-        }, 3, TimeUnit.SECONDS);
+        }, 2, TimeUnit.SECONDS);
     }
 }
