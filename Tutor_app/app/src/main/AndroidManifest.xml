@@ -30,7 +30,7 @@
             android:name=".siswa.Siswa_Show_All"
             android:configChanges="keyboardHidden|orientation"
             android:windowSoftInputMode="stateHidden|adjustNothing"
-            android:label="Daftar Sekolah"/>
+            android:label="Daftar Siswa"/>
         <activity
             android:name=".siswa.Siswa_Show"
             android:configChanges="keyboardHidden|orientation"

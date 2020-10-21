@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_Update"
-                android:text="@string/tambah_paket"/>
+                android:text="@string/update_paket"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_Update"
-                android:text="@string/tambah_sekolah"/>
+                android:text="@string/update_sekolah"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

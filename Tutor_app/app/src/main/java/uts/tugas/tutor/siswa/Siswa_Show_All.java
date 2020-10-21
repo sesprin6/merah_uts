@@ -91,14 +91,14 @@ public class Siswa_Show_All extends AppCompatActivity
             {
                 super.onPostExecute(s);
                 GlobalUtils.GProgressDialog.dismiss();
-                showSekolah(s);
+                showSiswa(s);
             }
         }
 
         new Task().execute();
     }
 
-    private void showSekolah(String json_data)
+    private void showSiswa(String json_data)
     {
         ArrayList<HashMap<String, String>> list = new ArrayList<>();
 
@@ -112,14 +112,14 @@ public class Siswa_Show_All extends AppCompatActivity
 
                 HashMap<String, String> siswa = new HashMap<>();
                 siswa.put(Config.ID, obj.getString(Config.ID));
-                siswa.put(Config.PACKAGE, obj.getString(Config.PACKAGE));
+                siswa.put(Config.NAME, obj.getString(Config.NAME));
 
                 list.add(siswa);
             }
         }
         catch (JSONException ignored) {}
 
-        ListAdapter adapter = new SimpleAdapter(Siswa_Show_All.this, list, R.layout.list_item, new String[] {Config.ID, Config.PACKAGE}, new int[] {R.id.id, R.id.name});
+        ListAdapter adapter = new SimpleAdapter(Siswa_Show_All.this, list, R.layout.list_item, new String[] {Config.ID, Config.NAME}, new int[] {R.id.id, R.id.name});
         listView.setAdapter(adapter);
     }
 

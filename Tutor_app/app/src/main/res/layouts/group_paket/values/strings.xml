@@ -4,5 +4,6 @@
     <string name="dafter_paket">Dafter Paket</string>
     <string name="id_paket">ID Paket</string>
     <string name="paket">Paket</string>
+    <string name="update_paket">Update Paket</string>
     <string name="hapus_paket">Hapus Paket</string>
 </resources>

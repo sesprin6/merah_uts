@@ -5,5 +5,6 @@
     <string name="tambah_sekolah">Tambah Sekolah</string>
     <string name="daftar_sekolah">Daftar Sekolah</string>
     <string name="id_sekolah">ID Sekolah</string>
+    <string name="update_sekolah">Update Sekolah</string>
     <string name="hapus_sekolah">Hapus Sekolah</string>
 </resources>
