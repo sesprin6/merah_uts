@@ -48,7 +48,7 @@ public class Siswa_Show_All extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
             {
-                Intent intent = new Intent(Siswa_Show_All.this, Siswa_Add.class);
+                Intent intent = new Intent(Siswa_Show_All.this, Siswa_Show.class);
                 HashMap<String, String> map = (HashMap<String, String>) adapterView.getItemAtPosition(i);
                 String id = map.get(Config.ID);
                 intent.putExtra(Config.TAG_ID, id);

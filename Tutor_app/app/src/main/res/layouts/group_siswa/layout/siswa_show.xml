@@ -199,12 +199,12 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/button_Add"
+                android:id="@+id/button_Update"
                 android:text="@string/update_siswa"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@id/button_View"
+                android:id="@id/button_Delete"
                 android:text="@string/hapus_siswa"/>
         </LinearLayout>
     </ScrollView>
